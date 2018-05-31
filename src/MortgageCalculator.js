@@ -11,13 +11,13 @@ class MortgageCalculator extends Component {
     payment: 0
   }
 
+//Calculation Logic
   mortgageCalculation() {
-
     let rate = this.refs.interestInput.value;
     let term = this.refs.amortizationInput.value;
     let principal = this.refs.principalInput.value;
 
-      //can use a whole number percentage or decimal
+      //enables whole number percentage or decimal
       if(rate > 1) {
         rate = rate * 0.01;
       } else {
@@ -39,6 +39,7 @@ class MortgageCalculator extends Component {
     return payment.toFixed(2);
   }
 
+//event handler (onInput)
   onInput = (e) => {
     this.setState({
       principleValue: this.refs.principalInput.value,
@@ -73,7 +74,7 @@ class MortgageCalculator extends Component {
         </form>
 
         <br />
-        <h2>Your property value is: $ {this.state.principleValue}</h2>
+        <h2>Your mortgage value is: $ {this.state.principleValue}</h2>
         <h2>Your down payment is: $ {this.state.downPayment}</h2>
         <h2>Your interest rate is: {this.state.interestRateValue}%</h2>
         <h2>Your interest amortization period is: {this.state.amortizationPeriod} years</h2>
